@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
     // Gestion de l'upload d'image
     var file_frame;
-
+    var carouselTypeSelect = document.getElementById('carousel_type');
     $('#upload_image_button').on('click', function(event) {
         event.preventDefault();
 
@@ -43,6 +43,7 @@ jQuery(document).ready(function($) {
         // Appliquer les règles CSS selon le type de carrousel sélectionné
         if (selectedType === 'default') {
             // Appliquer les règles CSS pour le type de carrousel par défaut
+            displayCarouselDefault();
         } else if (selectedType === 'type1') {
             // Appliquer les règles CSS pour le type 1 de carrousel
         } else if (selectedType === 'type2') {
@@ -50,4 +51,9 @@ jQuery(document).ready(function($) {
         }
         // Ajoutez d'autres conditions pour chaque type de carrousel
     });
+
+    function displayCarouselDefault() {
+        // Logique pour afficher le carrousel par défaut
+    }
+
 });
