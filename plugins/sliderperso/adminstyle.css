@@ -1,0 +1,9 @@
+h1 {
+    color: purple;
+    text-align: center;
+    text-decoration: underline 3px purple;
+    margin-bottom: 30px;
+}
+.forms {
+    margin: 20px 0;
+}

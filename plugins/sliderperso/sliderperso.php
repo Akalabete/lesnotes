@@ -14,7 +14,11 @@ add_action('admin_menu', 'register_media_selector_settings_page');
 function register_media_selector_settings_page() {
     add_submenu_page('options-general.php', 'Slider Settings', 'Slider Settings', 'manage_options', 'slider-settings', 'slider_settings_page_callback');
 }
-
+add_action('admin_enqueue_scripts', 'load_custom_wp_admin_style');
+function load_custom_wp_admin_style() {
+    wp_register_style('custom_wp_admin_css', plugins_url('adminstyle.css', __FILE__));
+    wp_enqueue_style('custom_wp_admin_css');
+}
 // Fonction pour afficher la page de configuration du slider
 function slider_settings_page_callback() {
     // Récupération des valeurs sauvegardées dans les options du slider
@@ -32,7 +36,14 @@ function slider_settings_page_callback() {
         }
         update_option('slider_selected_images', $selected_images);
     }
-
+    if (isset($_POST['carrousel-spec'])) {
+        $selected_carousel_type = isset($_POST['carousel_type']) ? sanitize_text_field($_POST['carousel_type']) : '';
+        $carousel_width = isset($_POST['carousel_width']) ? sanitize_text_field($_POST['carousel_width']) : '';
+        $carousel_height = isset($_POST['carousel_height']) ? sanitize_text_field($_POST['carousel_height']) : '';
+        update_option('slider_carousel_type', $selected_carousel_type);
+        update_option('slider_carousel_width', $carousel_width);
+        update_option('slider_carousel_height', $carousel_height);
+    }
     // Traitement de la suppression d'une image sélectionnée
     if (isset($_GET['delete_image']) && isset($_GET['image_id'])) {
         $selected_images = get_option('slider_selected_images', array());
@@ -40,16 +51,14 @@ function slider_settings_page_callback() {
         $selected_images = array_diff($selected_images, array($image_id));
 
         // Mise à jour des options du slider avec les nouvelles valeurs
-        $carousel_width = isset($_POST['carousel_width']) ? sanitize_text_field($_POST['carousel_width']) : '';
-        $carousel_height = isset($_POST['carousel_height']) ? sanitize_text_field($_POST['carousel_height']) : '';
-        $selected_carousel_type = isset($_POST['carousel_type']) ? sanitize_text_field($_POST['carousel_type']) : '';
-        update_option('slider_carousel_type', $selected_carousel_type);
-        update_option('slider_carousel_width', $carousel_width);
-        update_option('slider_carousel_height', $carousel_height);
+        
+        
         update_option('slider_selected_images', $selected_images);
     }
 
     // Chargement du script JS pour gérer l'upload d'image
+    
+    
     wp_enqueue_media();
     wp_enqueue_script('custom-slider-scripts', plugins_url('sliderperso.js', __FILE__), array('jquery'), '1.0', true);
 
@@ -57,31 +66,33 @@ function slider_settings_page_callback() {
     ?>
     <div class='wrap'>
         <h1>Slider Configuration</h1>
-        <form method='post'>
-            <label for="carousel_width">Carousel Width:</label>
-            <input type="text" id="carousel_width" name="carousel_width" value="<?php echo esc_attr($carousel_width); ?>" placeholder="Enter width">
-            
-            <label for="carousel_height">Carousel Height:</label>
-            <input type="text" id="carousel_height" name="carousel_height" value="<?php echo esc_attr($carousel_height); ?>" placeholder="Enter height">
-            
-            <label for="carousel_type">Select Carousel Type:</label>
-            <select id="carousel_type" name="carousel_type">
-                <option value="default" <?php selected($selected_carousel_type, 'default'); ?>>Default</option>
-                <option value="type1" <?php selected($selected_carousel_type, 'type1'); ?>>Type 1</option>
-                <option value="type2" <?php selected($selected_carousel_type, 'type2'); ?>>Type 2</option>
-            </select>
-            
-            <input type="submit" name="carrousel-spec" value="Save Carrousel Settings" class="button-primary">
-        </form>
-
-        <form method='post'>
-            <div class='image-preview-wrapper'>
-                <input id="upload_image_button" type="button" class="button" value="<?php _e('Upload Image'); ?>" />
-                <input type='hidden' name='image_attachment_id' id='image_attachment_id' value=''>
-                <input type="submit" name="submit_image_selector" value="Save Selected Image" class="button-primary">
-            </div>
-        </form>
-
+        <div class="forms">
+            <form method='post'>
+                <label for="carousel_width">Carousel Width:</label>
+                <input type="text" id="carousel_width" name="carousel_width" value="<?php echo esc_attr($carousel_width); ?>" placeholder="Enter width">
+                
+                <label for="carousel_height">Carousel Height:</label>
+                <input type="text" id="carousel_height" name="carousel_height" value="<?php echo esc_attr($carousel_height); ?>" placeholder="Enter height">
+                
+                <label for="carousel_type">Select Carousel Type:</label>
+                <select id="carousel_type" name="carousel_type">
+                    <option value="default" <?php selected($selected_carousel_type, 'default'); ?>>Default</option>
+                    <option value="type1" <?php selected($selected_carousel_type, 'type1'); ?>>Type 1</option>
+                    <option value="type2" <?php selected($selected_carousel_type, 'type2'); ?>>Type 2</option>
+                </select>
+                
+                <input type="submit" name="carrousel-spec" value="Save Carrousel Settings" class="button-primary">
+            </form>
+        </div>
+        <div class="forms">
+            <form method='post'>
+                <div class='image-preview-wrapper'>
+                    <input id="upload_image_button" type="button" class="button" value="<?php _e('Upload Image'); ?>" />
+                    <input type='hidden' name='image_attachment_id' id='image_attachment_id' value=''>
+                    <input type="submit" name="submit_image_selector" value="Save Selected Image" class="button-primary">
+                </div>
+            </form>
+        </div>
         <div class="selected-images-container">
             <?php foreach ($selected_images as $image_id) : ?>
                 <?php $image_url = wp_get_attachment_url($image_id); ?>
