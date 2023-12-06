@@ -23,6 +23,7 @@ function load_custom_wp_admin_style() {
 }
 // Fonction pour afficher la page de configuration du slider
 function slider_settings_page_callback() {
+    
     // Récupération des valeurs sauvegardées dans les options du slider
     $carousel_width = get_option('slider_carousel_width', 'Default Width');
     $carousel_height = get_option('slider_carousel_height', 'Default Height');
@@ -95,7 +96,7 @@ function slider_settings_page_callback() {
                 </div>
             </form>
         </div>
-        <div class="selected-images-container">
+        <div class="selected-images-container" data-image-urls="<?php echo esc_attr(json_encode(array_map('wp_get_attachment_url', $selected_images))); ?>">
             <?php foreach ($selected_images as $image_id) : ?>
                 <?php $image_url = wp_get_attachment_url($image_id); ?>
                 <div class="selected-image-item">
@@ -104,15 +105,23 @@ function slider_settings_page_callback() {
                 </div>
             <?php endforeach; ?>
         </div>
-        <div class="gallery-info">
-            <h2>Rappel des éléments enregistrés:</h2>
-            <p>largeur: <?php echo esc_html(get_option('slider_carousel_width', 'Default Width')); ?></p>
-            <p>hauteur: <?php echo esc_html(get_option('slider_carousel_height', 'Default Height')); ?></p>
-            <p>option de style: <?php echo esc_html(get_option('slider_carousel_type', 'Default Type')); ?></p>
-            <p>nombre de photos: <?php echo esc_html($number_of_photos); ?></p>
-        </div>
-        <div class="carousel-preview">
-            
+        <div class="summary-container">
+            <div class="gallery-info">
+                <h2>Rappel des éléments enregistrés:</h2>
+                <p>largeur: <?php echo esc_html(get_option('slider_carousel_width', 'Default Width')); ?></p>
+                <p>hauteur: <?php echo esc_html(get_option('slider_carousel_height', 'Default Height')); ?></p>
+                <p>option de style: <?php echo esc_html(get_option('slider_carousel_type', 'Default Type')); ?></p>
+                <p>nombre de photos: <?php echo esc_html($number_of_photos); ?></p>
+            </div>
+            <div class="carousel-preview" data-selected-images='<?php echo json_encode($selected_images); ?>'>
+                <h2>Prévisualisation</h2>
+                <div class="caroussel-preview-container">
+                    <img src="" id="carousel-preview-image" alt="Selected Image" height="200">
+                    <button id="prev-image-button">Previous</button>
+                    <button id="next-image-button">Next</button>
+                </div>
+            </div>
+
         </div>
     </div>
     <?php

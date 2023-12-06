@@ -12,10 +12,37 @@ h2 {
 .form, .gallery-info {
     text-align: center;
     margin: 20px 0;
-    border: solid 1px grey;
     background-color: lightgrey;
+}
+
+.summary-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    width: 100%;
+    border: solid 1px grey;
+}
+    
+.gallery-info{
+    width: 30%;
 }
 .selected-images-container{
     display: flex;
     flex-direction: row;
+}
+
+.caroussel-preview-container{
+    height: 150px;
+    width: 150px;
+    position:relative;
+}
+.caroussel-preview-container img{
+    width: 150px;
+    height: 150px;
+}
+
+.prev-image-button {
+    position: absolute;
+    bottom:0;
+    left:0;
 }

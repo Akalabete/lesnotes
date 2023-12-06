@@ -53,7 +53,28 @@ jQuery(document).ready(function($) {
     });
 
     function displayCarouselDefault() {
-        // Logique pour afficher le carrousel par défaut
+        var selectedImagesContainer = $('.selected-images-container');
+        var selectedImagesURLs = selectedImagesContainer.data('image-urls');
+        var currentIndex = 0;
+    
+        function showCurrentImage() {
+            $('#carousel-preview-image').attr('src', selectedImagesURLs[currentIndex]);
+        }
+    
+        showCurrentImage();
+    
+        $('#next-image-button').on('click', function() {
+            currentIndex = (currentIndex + 1) % selectedImagesURLs.length;
+            showCurrentImage();
+        });
+    
+        $('#prev-image-button').on('click', function() {
+            currentIndex = (currentIndex - 1 + selectedImagesURLs.length) % selectedImagesURLs.length;
+            showCurrentImage();
+        });
     }
+
+    displayCarouselDefault();
+
 
 });
