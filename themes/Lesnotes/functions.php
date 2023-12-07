@@ -76,3 +76,23 @@ function theme_enqueue_styles(){
 
   add_action('admin_menu', 'lesnotes_add_admin_pages', 10);
   add_action('admin_init', 'lesnotes_settings_register');
+
+  // Créer un shortcode pour le carrousel
+
+
+function carousel_shortcode() {
+    $selected_images = array();
+    ob_start();
+    ?>
+    <div class="carousel-preview" data-selected-images='<?php echo json_encode($selected_images); ?>'>
+        <div class="caroussel-preview-container">
+            <img src="" id="carousel-preview-image" alt="Selected Image" height="200">
+            <button id="prev-image-button"><</button>
+            <button id="next-image-button">></button>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('carousel', 'carousel_shortcode');
+    

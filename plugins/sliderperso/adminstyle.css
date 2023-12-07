@@ -1,10 +1,10 @@
-h1 {
+.perso-slide-admin-title {
     color: purple;
     text-align: center;
     text-decoration: underline 3px purple;
     margin-bottom: 30px;
 }
-h2 {
+.perso-slide-admin-subtitle {
     color: purple;
     text-decoration: underline wavy purple;
 }
@@ -30,8 +30,12 @@ h2 {
     display: flex;
     flex-direction: row;
 }
+.saved-carousels {
+    border: solid 1px black;
+}
 
 .caroussel-preview-container{
+    margin: 0 40px;
     height: 150px;
     width: 150px;
     position:relative;
@@ -41,8 +45,20 @@ h2 {
     height: 150px;
 }
 
-.prev-image-button {
+#prev-image-button {
+    left: 0;
+}
+#next-image-button {
+    right: 0;
+}
+
+
+#prev-image-button,#next-image-button{
+    background-color: transparent;
+    font-size: 24px;
+    font-weight: bolder;
+    border: none;
+    color: black;
     position: absolute;
-    bottom:0;
-    left:0;
+    top: 35%;
 }

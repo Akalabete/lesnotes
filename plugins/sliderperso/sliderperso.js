@@ -58,23 +58,40 @@ jQuery(document).ready(function($) {
         var currentIndex = 0;
     
         function showCurrentImage() {
-            $('#carousel-preview-image').attr('src', selectedImagesURLs[currentIndex]);
+            if (!selectedImagesURLs || selectedImagesURLs.length === 0) {
+                $('#carousel-preview-image').attr('src', '').attr('alt', 'Pas d\'image');
+                $('#prev-image-button').hide();
+                $('#next-image-button').hide();
+            } else if (selectedImagesURLs.length === 1) {
+                $('#carousel-preview-image').attr('src', selectedImagesURLs[0]);
+                $('#prev-image-button').hide();
+                $('#next-image-button').hide();
+            } else {
+                $('#carousel-preview-image').attr('src', selectedImagesURLs[currentIndex]);
+                $('#prev-image-button').show();
+                $('#next-image-button').show();
+            }
         }
     
         showCurrentImage();
     
         $('#next-image-button').on('click', function() {
-            currentIndex = (currentIndex + 1) % selectedImagesURLs.length;
-            showCurrentImage();
+            if (selectedImagesURLs && selectedImagesURLs.length > 0) {
+                currentIndex = (currentIndex + 1) % selectedImagesURLs.length;
+                showCurrentImage();
+            }
         });
     
         $('#prev-image-button').on('click', function() {
-            currentIndex = (currentIndex - 1 + selectedImagesURLs.length) % selectedImagesURLs.length;
-            showCurrentImage();
+            if (selectedImagesURLs && selectedImagesURLs.length > 0) {
+                currentIndex = (currentIndex - 1 + selectedImagesURLs.length) % selectedImagesURLs.length;
+                showCurrentImage();
+            }
         });
     }
-
+    
     displayCarouselDefault();
+    
 
 
 });

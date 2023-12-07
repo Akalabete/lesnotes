@@ -30,6 +30,7 @@ function slider_settings_page_callback() {
     $selected_carousel_type = get_option('slider_carousel_type', 'default');
     $selected_images = get_option('slider_selected_images', array());
     $number_of_photos = count($selected_images);
+    $carousel_name = get_option('carousel_name', '');
 
     // Traitement de la soumission du formulaire pour les images sélectionnées
     if (isset($_POST['submit_image_selector']) && isset($_POST['image_attachment_id'])) {
@@ -47,9 +48,18 @@ function slider_settings_page_callback() {
         $selected_carousel_type = isset($_POST['carousel_type']) ? sanitize_text_field($_POST['carousel_type']) : '';
         $carousel_width = isset($_POST['carousel_width']) ? sanitize_text_field($_POST['carousel_width']) : '';
         $carousel_height = isset($_POST['carousel_height']) ? sanitize_text_field($_POST['carousel_height']) : '';
+        $css_url = '';
+        if ($selected_carousel_type === 'default') {
+            $css_url = plugins_url('defaultcarousel.css', __FILE__); // URL du fichier CSS par défaut
+        } elseif ($selected_carousel_type === 'type1') {
+            $css_url = plugins_url('type1carousel.css', __FILE__); // URL du fichier CSS pour type 1
+        } elseif ($selected_carousel_type === 'type2') {
+            $css_url = plugins_url('type2carousel.css', __FILE__); // URL du fichier CSS pour type 2
+        }
         update_option('slider_carousel_type', $selected_carousel_type);
         update_option('slider_carousel_width', $carousel_width);
         update_option('slider_carousel_height', $carousel_height);
+        update_option('slider_carousel_css_url', $css_url);
     }
     // Traitement de la suppression d'une image sélectionnée
     if (isset($_GET['delete_image']) && isset($_GET['image_id'])) {
@@ -58,6 +68,28 @@ function slider_settings_page_callback() {
         $selected_images = array_diff($selected_images, array($image_id));       
         update_option('slider_selected_images', $selected_images);
     }
+    // On sauvegarde ce carroussel
+    if (isset($_POST['save_carousel'])) {
+        $carousel_data = array(
+            'name' => sanitize_text_field($_POST['carousel_name']),
+            'width' => $carousel_width,
+            'height' => $carousel_height,
+            'type' => $selected_carousel_type,
+            'selected_images' => $selected_images,
+            'cssurl' => get_option('slider_carousel_css_url'),
+        );
+    
+        // Récupérer tous les carrousels enregistrés
+        $saved_carousels = get_option('savedcarousel', array());
+    
+        // Ajouter le nouveau carousel au tableau des carrousels enregistrés
+        $saved_carousels[] = $carousel_data;
+    
+        // Mettre à jour l'option avec tous les carrousels enregistrés
+        update_option('savedcarousel', $saved_carousels);
+    }
+
+    
 
     // Chargement du script JS pour gérer l'upload d'image
     wp_enqueue_media();
@@ -66,9 +98,9 @@ function slider_settings_page_callback() {
     // Affichage de la page de configuration du slider
     ?>
     <div class='wrap'>
-        <h1>Slider Configuration</h1>
+        <h1 class="perso-slide-admin-title">Slider Configuration</h1>
         <div class="forms">
-            <h2>Dimension des images et style choisi:</h2>
+            <h2 class="perso-slide-admin-subtitle">Dimension des images et style choisi:</h2>
             <form method='post'>
                 <label for="carousel_width">largeur:</label>
                 <input type="text" id="carousel_width" name="carousel_width" value="<?php echo esc_attr($carousel_width); ?>" placeholder="Enter width">
@@ -87,7 +119,7 @@ function slider_settings_page_callback() {
             </form>
         </div>
         <div class="forms">
-            <h2>Upload des photos:</h2>
+            <h2 class="perso-slide-admin-subtitle">Upload des photos:</h2>
             <form method='post'>
                 <div class='image-preview-wrapper'>
                     <input id="upload_image_button" type="button" class="button" value="<?php _e('Upload Image'); ?>" />
@@ -107,22 +139,59 @@ function slider_settings_page_callback() {
         </div>
         <div class="summary-container">
             <div class="gallery-info">
-                <h2>Rappel des éléments enregistrés:</h2>
+                <h2 class="perso-slide-admin-subtitle">Rappel des éléments enregistrés:</h2>
                 <p>largeur: <?php echo esc_html(get_option('slider_carousel_width', 'Default Width')); ?></p>
                 <p>hauteur: <?php echo esc_html(get_option('slider_carousel_height', 'Default Height')); ?></p>
                 <p>option de style: <?php echo esc_html(get_option('slider_carousel_type', 'Default Type')); ?></p>
                 <p>nombre de photos: <?php echo esc_html($number_of_photos); ?></p>
-            </div>
+                <form method='post'>
+                    <label for="carousel_name">Nom du carousel</label>
+                    <input type="text" name="carousel_name" id="carousel_name"value="<?php echo esc_attr($carousel_name); ?>" placeholder="Nom">
+                    <input type="submit" name="save_carousel" value="Save Carousel" class="button-primary">
+                </form>
+                </div>
             <div class="carousel-preview" data-selected-images='<?php echo json_encode($selected_images); ?>'>
-                <h2>Prévisualisation</h2>
+                <h2 class="perso-slide-admin-subtitle">Prévisualisation</h2>
                 <div class="caroussel-preview-container">
                     <img src="" id="carousel-preview-image" alt="Selected Image" height="200">
-                    <button id="prev-image-button">Previous</button>
-                    <button id="next-image-button">Next</button>
+                    <button id="prev-image-button"><</button>
+                    <button id="next-image-button">></button>
                 </div>
             </div>
-
         </div>
+        <div class="saved-carousels">
+            <?php
+            $saved_carousels = get_option('savedcarousel', array());
+            foreach ($saved_carousels as $index => $carousel_data) :
+            ?>
+            <div class="saved-carousel">
+                <h3><?php echo esc_html($carousel_data['name']); ?></h3>
+                <p>Largeur : <?php echo esc_html($carousel_data['width']); ?></p>
+                <p>Hauteur : <?php echo esc_html($carousel_data['height']); ?></p>
+                <p>Type : <?php echo esc_html($carousel_data['type']); ?></p>
+                <!-- Ajoutez d'autres détails du carousel ici -->
+
+                <!-- Bouton de suppression -->
+                <form method="post">
+                    <input type="hidden" name="carousel_index" value="<?php echo esc_attr($index); ?>">
+                    <input type="submit" name="delete_carousel" value="Supprimer" class="button-secondary">
+                </form>
+            </div>
+            <?php endforeach; ?>
+
+            <?php
+            // Traitement de la suppression d'un carousel enregistré
+            if (isset($_POST['delete_carousel']) && isset($_POST['carousel_index'])) {
+                $carousel_index = intval($_POST['carousel_index']);
+                if (isset($saved_carousels[$carousel_index])) {
+                    unset($saved_carousels[$carousel_index]);
+                    $saved_carousels = array_values($saved_carousels); // Réorganiser les indices
+                    update_option('savedcarousel', $saved_carousels);
+                }
+            }
+            ?>
+        </div>
+
     </div>
     <?php
 }
