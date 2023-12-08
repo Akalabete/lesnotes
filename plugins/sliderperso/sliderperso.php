@@ -21,6 +21,7 @@ function load_custom_wp_admin_style() {
     wp_register_style('custom_wp_admin_css', plugins_url('adminstyle.css', __FILE__));
     wp_enqueue_style('custom_wp_admin_css');
 }
+require_once(__DIR__ . '/carousel-functions.php');
 // Fonction pour afficher la page de configuration du slider
 function slider_settings_page_callback() {
     
@@ -70,13 +71,20 @@ function slider_settings_page_callback() {
     }
     // On sauvegarde ce carroussel
     if (isset($_POST['save_carousel'])) {
+        // Récupérer le nom du carousel à partir du formulaire
+        $carousel_name = isset($_POST['carousel_name']) ? sanitize_text_field($_POST['carousel_name']) : '';
+
+        // Générer le shortcode pour ce carrousel
+        $carousel_shortcode = '[custom_carousel_by_name name="' . esc_attr($carousel_name) . '"]';
+
         $carousel_data = array(
-            'name' => sanitize_text_field($_POST['carousel_name']),
+            'name' => $carousel_name,
             'width' => $carousel_width,
             'height' => $carousel_height,
             'type' => $selected_carousel_type,
             'selected_images' => $selected_images,
             'cssurl' => get_option('slider_carousel_css_url'),
+            'shortcode' => $carousel_shortcode,
         );
     
         // Récupérer tous les carrousels enregistrés
@@ -87,6 +95,16 @@ function slider_settings_page_callback() {
     
         // Mettre à jour l'option avec tous les carrousels enregistrés
         update_option('savedcarousel', $saved_carousels);
+        // Réinitialisation des valeurs du carousel après la sauvegarde
+        $carousel_width = 0;
+        $carousel_height = 0;
+        $selected_carousel_type = "default";
+        $selected_images = array();
+        $cssurl = "";
+        update_option('slider_carousel_type', $selected_carousel_type);
+        update_option('slider_carousel_width', $carousel_width);
+        update_option('slider_carousel_height', $carousel_height);
+        update_option('slider_carousel_css_url', $cssurl);
     }
 
     
@@ -169,6 +187,7 @@ function slider_settings_page_callback() {
                 <p>Largeur : <?php echo esc_html($carousel_data['width']); ?></p>
                 <p>Hauteur : <?php echo esc_html($carousel_data['height']); ?></p>
                 <p>Type : <?php echo esc_html($carousel_data['type']); ?></p>
+                <p>Shortcode : <?php echo esc_html($carousel_data['shortcode']); ?></p>
                 <!-- Ajoutez d'autres détails du carousel ici -->
 
                 <!-- Bouton de suppression -->
