@@ -69,9 +69,10 @@
             <div class="group">
                 <div class="groupphoto">
                     <picture>
-                        <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/photoremplacementmolienda400x311.webp}" sizes="(min-width: 768px) 360px, 100vw">
-                        <img width="230" height="152" src="<?php echo get_template_directory_uri(); ?>/assets/images/photoremplacementmolienda.webp" alt="<?php _e('photo d&apos;ambiance de rue lors d&apos;un concert', 'lesnotes'); ?>" />
+                        <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/photoremplacementmolienda360x263.webp" sizes="(min-width: 768px) 400px, 100vw">
+                        <img style="width: 100%; height: auto;" src="<?php echo get_template_directory_uri(); ?>/assets/images/photoremplacementmolienda240x175.webp" alt="<?php _e('photo d&apos;ambiance de rue lors d&apos;un concert', 'lesnotes'); ?>" />
                     </picture>
+
                 </div>
                 <div class="group-text-container">
                     <p>
@@ -110,7 +111,7 @@
                             <div class="${itemClass}-photo-container">
                                 <picture>
                                     <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/sliders/${currentSlider.urlmedium}" sizes="(min-width: 360px) 360px, 100vw">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sliders/${currentSlider.urlsmall}" alt="${currentSlider.alt}" class="${itemClass}-photo" width="230" height="150">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sliders/${currentSlider.urlsmall}" alt="${currentSlider.alt}" class="${itemClass}-photo" width="230" height="152">
                                 </picture>
                             </div>
                         `;
