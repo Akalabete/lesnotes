@@ -151,7 +151,7 @@
           echo $introduction;
         ?>
       </span>
-      <img width="137" height="113" src="<?php echo get_template_directory_uri(); ?>/assets/images/logoremov.png" alt="<?php _e('Les notes de mon moulin', 'lesnotes'); ?>" />
+      <img width="137" height="113" src="<?php echo get_template_directory_uri(); ?>/assets/images/logoremov.webp" alt="<?php _e('Les notes de mon moulin', 'lesnotes'); ?>" />
     </a>
     <div class="nav-container">
       <ul class="nav-ul">

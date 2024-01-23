@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="separator">
-            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.png" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
+            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
         </div>
     </section>
     
@@ -68,7 +68,10 @@
             </div>
             <div class="group">
                 <div class="groupphoto">
-                    <img width="240" height="150" src="<?php echo get_template_directory_uri(); ?>/assets/images/photoremplacementmolienda.jpg" alt="<?php _e('photo d&apos;ambiance de rue lors d&apos;un concert', 'lesnotes'); ?>" />
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/photoremplacementmolienda400x311.webp}" sizes="(min-width: 768px) 360px, 100vw">
+                        <img width="230" height="152" src="<?php echo get_template_directory_uri(); ?>/assets/images/photoremplacementmolienda.webp" alt="<?php _e('photo d&apos;ambiance de rue lors d&apos;un concert', 'lesnotes'); ?>" />
+                    </picture>
                 </div>
                 <div class="group-text-container">
                     <p>
@@ -82,7 +85,7 @@
             </div>
         </div>
         <div class="separator">
-            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.png" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
+            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
         </div>
     </section>
     
@@ -105,7 +108,10 @@
                         const currentSlider = sliderData[index];
                         sliderItem.innerHTML = `
                             <div class="${itemClass}-photo-container">
-                                <img src="<?php echo get_template_directory_uri(); ?>${currentSlider.url}" alt="${currentSlider.alt}" class="${itemClass}-photo" width="240" height="150">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/sliders/${currentSlider.urlmedium}" sizes="(min-width: 360px) 360px, 100vw">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sliders/${currentSlider.urlsmall}" alt="${currentSlider.alt}" class="${itemClass}-photo" width="230" height="150">
+                                </picture>
                             </div>
                         `;
 
@@ -144,9 +150,8 @@
     </div>
 </div>
 <script>
-    createSlider('sliderisa-container', 'prevButton', 'nextButton', '/assets/images/sliders/sliderisa/slider-isa.json', 'sliderisa-item');
+    createSlider('sliderisa-container', 'prevButton', 'nextButton', '/assets/images/sliders/sliderisa/sisa.json', 'sliderisa-item');
 </script>
-
 <!-- Slider alma -->
 <div class="slideralma">
     <h3 class="slider-titles"><?php _e('Alma del Sur', 'lesnotes'); ?></h3>
@@ -158,13 +163,13 @@
 </div>
 </div>
 <script>
-    createSlider('slideralma-container', 'prevButtonAlma', 'nextButtonAlma', '/assets/images/sliders/slideralma/slider-alma.json', 'slideralma-item');
+    createSlider('slideralma-container', 'prevButtonAlma', 'nextButtonAlma', '/assets/images/sliders/slideralma/alma.json', 'slideralma-item');
 </script>
 
 
 
         <div class="separator">
-            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.png" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
+            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
         </div>
     </section>
     
