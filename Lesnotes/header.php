@@ -23,45 +23,80 @@
             "image": [
               {
               "@type": "ImageObject",
-              "url": "./assets/images/sliders/slideralma/small/slideralma1smal.webp",
-              "width": "240",
-              "height": "150",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma1.webp",
+              "width": "152",
+              "height": "230",
               "description": "Percussioniste d'Alma del sur jouant des congas"
               },
               {
-              "@type": "ImageObject",
-              "url": "./assets/images/small/pic-two-small.web",
-              "width": "400",
-              "height": "300",
-              "description": "lodge kitchen area"
+                "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma2.webp",
+              "width": "152",
+              "height": "230",
+              "description": "Goa Lupe à la guitare tres"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-three-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "one of the lodge bedroom"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma3.webp",
+              "width": "152",
+              "height": "230",
+              "description": "Goa Lupe debout avec sa guitare"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-four-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "lodge entrance"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma4.webp",
+              "width": "230",
+              "height": "152",
+              "description": "Percussioniste d'Alma del Sur jouant du djembé"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-five-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "another view of the lodge living room"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma5.webp",
+              "width": "152",
+              "height": "230",
+              "description": "Photo de Goa Lupe chantant avec sa guitare"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-six-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "another bedroom of the lodge"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma6.webp",
+              "width": "230",
+              "height": "152",
+              "description": "Percussioniste d'Alma del Sur jouant des congas"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma7.webp",
+              "width": "152",
+              "height": "230",
+              "description": "Goa Lupe debout avec sa guitare et chantant"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma8.webp",
+              "width": "230",
+              "height": "152",
+              "description": "Percussioniste d'Alma del Sur jouant sur un violoncelle"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma9.webp",
+              "width": "152",
+              "height": "230",
+              "description": "Percussioniste d'Alma del Sur jouant des congas en noir et blanc"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma10.webp",
+              "width": "230",
+              "height": "152",
+              "description": "Ambiance de rue lors d'un concert a Aubeterre-sur-dronne"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/slideralma/small/slideralma11.webp",
+              "width": "230",
+              "height": "152",
+              "description": "autre prise de vue lors d'un concert"
               }
             ]
           },
@@ -72,65 +107,109 @@
             "image": [
               {
               "@type": "ImageObject",
-              "url": "./assets/images/sliders/slideralma/small/slideralma1smal.webp",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa1.webp",
               "width": "240",
               "height": "150",
-              "description": "Percussioniste d'Alma del sur jouant des congas"
+              "description": "Photo d'un guitariste du group la isabelica"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-two-small.web",
-              "width": "400",
-              "height": "300",
-              "description": "lodge kitchen area"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa2.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo de Goa Lupe, guitariste du groupe"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-three-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "one of the lodge bedroom"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa3.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo du percussioniste du groupe"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-four-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "lodge entrance"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa4.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo du percussioniste jouant du bongo"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-five-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "another view of the lodge living room"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa5.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Portrait de Goa Lupe le guitariste"
               },
               {
               "@type": "ImageObject",
-              "url": "./assets/images/small/pic-six-small.webp",
-              "width": "400",
-              "height": "300",
-              "description": "another bedroom of the lodge"
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa6.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo de pied de Goa Lupe le guitariste"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa7.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Une autre photo en pied de Goa Lupe"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa8.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo des deux guitaristes en noir et blanc"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa9.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo du trio percussion guitare guitare noir et blanc"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa10.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo de Goa Lupe le guitariste assis avec sa guitare noir et blanc"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa11.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo portrait noir et blanc de Goa Lupe le guitariste"
+              },
+              {
+              "@type": "ImageObject",
+              "url": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/sliders/sliderisa/small/sliderisa12.webp",
+              "width": "240",
+              "height": "150",
+              "description": "Photo portrait noir et blanc du second guitariste."
               }
             ]
           },
           {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Les notes de mon moulin",
-          "url": "https://les-notes-de-mon-moulin.fr/",
-          "priceRange": "on demand",
-          "telephone": "+33-6-60-58-72-44",
-          "paymentAccepted": [
-            "Cash",
-            "CreditCard"
+            "@context": "http://schema.org",
+            "@type": "MusicGroup",
+            "name": "La isabellica",
+            "url": "https://www.les-notes-de-mon-moulin.fr/",
+            "sameAs": [
+              {
+                "facebook": "https://www.facebook.com/Goalupe/"
+              }
             ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+33-6-60-58-72-44",
-            "email": "goalupe@hotmail.fr",
-            "contactType": "customer service"
-            }
+            "genre": "Genre musical du groupe",
+            "description": "Description du groupe de musique",
+            "image": "https://www.les-notes-de-mon-moulin.fr/wp-content/themes/Lesnotes/assets/images/photoremplacementmolienda240x175.webp",
+            "member": [
+              {
+                "@type": "Person",
+                "name": "Goa Lupe"
+              }
+            ]
           }
         ]
       

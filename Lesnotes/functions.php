@@ -9,7 +9,24 @@ function theme_enqueue_styles(){
     
 
 }
+function set_samesite_cookie($content) {
+  // Assurez-vous que le contenu est une chaîne de caractères
+  if (is_string($content)) {
+      // Vérifiez si 'SameSite=None; Secure' n'est pas déjà présent et si l'utilisateur est connecté
+      if (strpos($content, 'SameSite=None; Secure') === false && is_user_logged_in()) {
+          $content = str_replace('path=/;', 'path=/; SameSite=None; Secure;', $content);
+      }
+  }
 
+  return $content;
+}
+
+// Ajoutez le filtre uniquement si l'utilisateur est connecté
+if (is_user_logged_in()) {
+  add_filter('wp_headers', 'set_samesite_cookie', 10, 1);
+}
+
+add_filter('wp_headers', 'set_samesite_cookie');
   function lesnotes_add_admin_pages() {
     add_menu_page(__('Paramètres du thème Les notes de mon moulin', 'lesnotes'), __('lesnotes', 'lesnotes'), 'manage_options', 'lesnotes-settings', 'lesnotes_theme_settings', 'dashicons-admin-settings', 60); 
   }
