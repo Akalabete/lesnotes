@@ -77,7 +77,7 @@
                 <div class="group-text-container">
                     <p tabindex="0">
                         <?php
-                            $texte = __('La&nbsp;Molienda est une proposition muscale des deux formations réunies autour de la musique cubaine composée de bongos, congas, guitare, tres et flûte traversière, cet ensemble se veux plus pertinent en rythmique et en ambiance.', 'lesnotes');
+                            $texte = __('La&nbsp;Molienda est une proposition musicale des deux formations réunies autour de la musique cubaine composée de bongos, congas, guitare, tres et flûte traversière, cet ensemble se veux plus pertinent en rythmique et en ambiance.', 'lesnotes');
                             $texte = str_replace('La&nbsp;Molienda', '<u>La&nbsp;Molienda</u>', $texte);
                             echo $texte;
                         ?>
