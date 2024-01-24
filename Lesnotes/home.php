@@ -145,7 +145,7 @@
 <div class="sliderisa">
     <h3 tabindex="0" class="slider-titles"><?php _e('La Isabellica', 'lesnotes'); ?></h3>
     <div class="sliderisa-buttons" id="sliderisa-buttons">
-        <button class="prevButton" id="prevButton"> ⬅️ </button>
+        <button class="prevButton" id="prevButton">⬅️</button>
         <div id="sliderisa-container" class="sliderisa-container"></div>
         <button class="nextButton" id="nextButton">➡️</button>
     </div>
