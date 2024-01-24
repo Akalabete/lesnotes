@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="separator">
-            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
+            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe entre la presentation du collectif et les groupes', 'lesnotes'); ?>" />
         </div>
     </section>
     
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="separator">
-            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
+            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe entre les groupes et le livre d&apos;or', 'lesnotes'); ?>" />
         </div>
     </section>
     
@@ -170,7 +170,7 @@
 
 
         <div class="separator">
-            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe', 'lesnotes'); ?>" />
+            <img width="250" height="60" src="<?php echo get_template_directory_uri(); ?>/assets/images/partition.webp" alt="<?php _e('séparateur de paragraphe entre le livre d&apos;or et les infos de contact', 'lesnotes'); ?>" />
         </div>
     </section>
     
@@ -184,6 +184,7 @@
         ?>
         <p tabindex="0"><span>Christophe</span> au : <?php echo $phone_number; ?></p>
         <p tabindex="0"><span>Courriel</span> : <?php echo $email; ?></p>
+        <p class="fb-link" tabindex="0"><a href="https://www.facebook.com/Goalupe/" target="_blank"><img height="40" width="40" src="<?php echo get_template_directory_uri(); ?>/assets/images/fb.webp"alt="<?php _e('Lien vers le profil facebook de Goa lupe', 'lesnotes'); ?>" /> </a></p>
     </section>
     <section id="Apropos">
         <div class="bio">
