@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?php _e('Les notes de mon moulin', 'lesnotes'); ?></title>
     <?php wp_head(); ?>
-    <meta name=description content="Les notes de mon moulin est un recueil de propositions musicales autour de la musique cubaine et sud-américaine porté par un collectif de musiciens pour animer vos happenings, cocktails de mariage, inaugurations et soirées en Nouvelle Acquitaine.">
+    <meta name=description content="Les notes de mon moulin est un recueil de propositions musicales autour de la musique cubaine et sud-américaine porté par un collectif de musiciens pour animer vos happenings, cocktails de mariage, inaugurations et soirées en Nouvelle Aquitaine.">
     <meta name=robots content="index, follow">
     <meta property=og:title content="Les notes de mon moulin">
-    <meta property=og:description content="Les notes de mon moulin est un recueil de propositions musicales autour de la musique cubaine et sud-américaine porté par un collectif de musiciens pour animer vos happenings, cocktails de mariage, inaugurations et soirées en Nouvelle Acquitaine.">
+    <meta property=og:description content="Les notes de mon moulin est un recueil de propositions musicales autour de la musique cubaine et sud-américaine porté par un collectif de musiciens pour animer vos happenings, cocktails de mariage, inaugurations et soirées en Nouvelle Aquitaine.">
     <meta property=og:url content=https://les-notes-de-mon-moulin.fr/>
     <meta property=og:type content=website>
     <meta property=og:site_name content="Les notes de mon moulin">

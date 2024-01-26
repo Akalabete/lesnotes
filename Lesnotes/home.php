@@ -16,7 +16,7 @@
                 </div>
                 <h1 >
                     <?php 
-                        $texte = __('Les&nbsp;notes&nbsp;de&nbsp;mon&nbsp;moulin est un recueil de propositions musicales autour de la musique cubaine et sud-américaine porté par un collectif de musiciens pour animer vos happenings, cocktails de mariage, inaugurations et soirées en Nouvelle Acquitaine.', 'lesnotes');
+                        $texte = __('Les&nbsp;notes&nbsp;de&nbsp;mon&nbsp;moulin est un recueil de propositions musicales autour de la musique cubaine et sud-américaine porté par un collectif de musiciens pour animer vos happenings, cocktails de mariage, inaugurations et soirées en Nouvelle Aquitaine.', 'lesnotes');
                         $texte = str_replace('Les&nbsp;notes&nbsp;de&nbsp;mon&nbsp;moulin', '<u>Les&nbsp;notes&nbsp;de&nbsp;mon&nbsp;moulin</u>', $texte);
                         echo $texte;
                     ?>
@@ -30,7 +30,7 @@
     
     <section id="presentation">
         <h2> 
-        <?php _e('La musique au fil de vos événements est à votre tempo, latino-cubain.', 'lesnotes'); ?>
+        <?php _e('La musique au fil de vos événements et, à votre tempo, latino-cubain.', 'lesnotes'); ?>
         </h2 tabindex="0">
         <div class="groupcontainer">
             <div class="group">
